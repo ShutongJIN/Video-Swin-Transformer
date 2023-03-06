@@ -58,7 +58,7 @@ def download_clip(video_identifier,
                   output_filename,
                   start_time,
                   end_time,
-                  tmp_dir='/tmp/kinetics',
+                  tmp_dir='/Midgard/home/shutong/tmp/kinetics',
                   num_attempts=5,
                   url_base='https://www.youtube.com/watch?v='):
     """Download a video from youtube if exists and is not blocked.
@@ -175,7 +175,7 @@ def main(input_csv,
          output_dir,
          trim_format='%06d',
          num_jobs=24,
-         tmp_dir='/tmp/kinetics'):
+         tmp_dir='/Midgard/home/shutong/tmp/kinetics'):
     # Reading and parsing Kinetics.
     dataset = parse_kinetics_annotations(input_csv)
 
