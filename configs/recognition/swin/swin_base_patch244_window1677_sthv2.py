@@ -63,7 +63,7 @@ test_pipeline = [
     dict(type='ToTensor', keys=['imgs'])
 ]
 data = dict(
-    videos_per_gpu=8,
+    videos_per_gpu=4,  #8 original
     workers_per_gpu=1,
     val_dataloader=dict(
         videos_per_gpu=1,
@@ -114,15 +114,16 @@ find_unused_parameters = False
 
 
 # do not use mmdet version fp16
-fp16 = None
-optimizer_config = dict(
-    type="DistOptimizerHook",
-    update_interval=8,
-    grad_clip=None,
-    coalesce=True,
-    bucket_size_mb=-1,
-    use_fp16=True,
-)
+#uncomment this later if need apex 20230307
+#fp16 = None
+#optimizer_config = dict(
+#    type="DistOptimizerHook",
+#    update_interval=8,
+#    grad_clip=None,
+#    coalesce=True,
+#    bucket_size_mb=-1,
+#    use_fp16=True,
+#)
 
 model=dict(backbone=dict(patch_size=(2,4,4), window_size=(16,7,7), drop_path_rate=0.4),
            cls_head=dict(num_classes=174),
